@@ -1,0 +1,49 @@
+<div class="container py-4">
+  <h2 class="mb-4">Turmeric Godown Dashboard</h2>
+
+  <!-- isLoading spinner -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">isLoading...</span>
+    </div>
+  </div>
+
+  <!-- Godown cards -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3" *ngIf="!isLoading">
+    <div class="col" *ngFor="let godown of godownDetails">
+      <div class="card h-100 shadow-sm small-card">
+        <div class="card-body">
+          <h5 class="card-title">{{ godown.name }}</h5>
+          <div class="d-flex flex-wrap">
+            <span class="badge bg-primary me-2 mb-1">Location: <span class="fw-normal">{{ godown.location
+                }}</span></span>
+            <span class="badge bg-secondary me-2 mb-1">Capacity: <span class="fw-normal">{{ godown.capacity | number }}
+                KG</span></span>
+            <span class="badge bg-success me-2 mb-1">Current: <span class="fw-normal">{{ godown.currentStock | number }}
+                KG</span></span>
+            <span class="badge bg-info text-dark me-2 mb-1">Inward: <span class="fw-normal">{{ godown.inwardStock |
+                number }} KG</span></span>
+            <span class="badge bg-warning text-dark me-2 mb-1">Outward: <span class="fw-normal">{{ godown.outwardStock |
+                number }} KG</span></span>
+            <span class="badge bg-light text-dark me-2 mb-1">Updated: <span class="fw-normal">{{ godown.lastUpdated |
+                date:'short' }}</span></span>
+            <span class="badge" [ngClass]="godown.status === 'active' ? 'bg-success' : 'bg-secondary'">
+              Status: <span class="fw-normal">{{ godown.status | titlecase }}</span>
+            </span>
+            <span class="badge bg-dark text-white me-2 mb-1">
+              Contact: <span class="fw-normal">{{ godown.contactPerson ? godown.contactPerson:'NA' }}</span>
+            </span>
+            <span class="badge bg-dark text-white me-2 mb-1">
+              Phone: <span class="fw-normal">{{ godown.contactNumber ? godown.contactNumber:'NA' }}</span>
+            </span>
+          </div>
+          <!-- Action buttons -->
+          <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-sm btn-primary" (click)="gotoGodownPage(godown)">View</button>
+            <!-- <button class="btn btn-sm btn-secondary">Edit</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

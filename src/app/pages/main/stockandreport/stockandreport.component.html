@@ -1,0 +1,36 @@
+<div class="container py-4">
+  <h2 class="mb-4">Dashboard</h2>
+  {{godownDetails[0].name}}
+
+  <!-- isLoading spinner -->
+  <div *ngIf="isLoading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">isLoading...</span>
+    </div>
+  </div>
+
+  <!-- Godown cards -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    <div class="col" >
+      <div class="card h-100 shadow-sm small-card">
+        <div class="card-body">
+          <h5 class="card-title">Stock</h5>
+          <div class="d-flex flex-wrap">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" >
+      <div class="card h-100 shadow-sm small-card">
+        <div class="card-body">
+          <h5 class="card-title">Reports</h5>
+          <div class="d-flex flex-wrap">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

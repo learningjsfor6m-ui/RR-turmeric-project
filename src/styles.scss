@@ -1,0 +1,174 @@
+.content {
+  margin-left: 250px;
+  padding: 30px;
+  padding-top: 90px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fc;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    .dashboard {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      width: 100%;
+      // max-width: 300px;
+      // height: 200px;
+      border-radius: 15px;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-inward {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .card-outward {
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-value {
+      font-size: 36px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: #dcdcdc;
+    }
+
+    .card-footer {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+      color: #dcdcdc;
+    }
+
+    /* Navigation Bar Styling */
+    .navbar-custom {
+      background-color: #667eea;
+    }
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+      color: white;
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Button Styling */
+    .btn-custom {
+      background-color: #667eea;
+      color: white;
+      border-radius: 20px;
+      padding: 10px 20px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #4c6ef5;
+    }
+
+    /* Chart Container */
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .row {
+      margin-top: 30px;
+    }
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container {
+  padding: 20px;
+}
+/* Dashboard styling */
+body {
+  background: #f4f6f9;
+}
+
+.card {
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.badge {
+  font-size: 0.9rem;
+}
+/* Small card styling */
+.small-card {
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.small-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.6em;
+}
