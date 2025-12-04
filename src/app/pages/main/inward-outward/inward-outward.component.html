@@ -1,37 +1,15 @@
+  <!-- Card 1: Up Arrow -->
+  <div class="card">
+    <button class="arrow-btn up" (click)="navigateToInvardEntry()">
+      <i class="bi bi-arrow-up"></i>
+      <span>Inward</span>
+    </button>
+  </div>
 
-
-  <div class="container mt-5">
-    <h1>Turmeric Godown Dashboard</h1>
-
-    <!-- Dashboard Content -->
-    <div class="row justify-content-center dashboard">
-      <div class="col-md-4 mb-4">
-        <div class="card card-inward">
-          <div class="card-title">Inward Stock</div>
-          <div class="card-value">2500 KG</div>
-          <div class="card-subtitle">Received: 10/12/2025</div>
-          <div class="card-footer">Stock Inward Data</div>
-          <a href="#reports" class="btn btn-custom mt-3">View Details</a>
-        </div>
-      </div>
-
-      <div class="col-md-4 mb-4">
-        <div class="card card-outward">
-          <div class="card-title">Outward Stock</div>
-          <div class="card-value">1500 KG</div>
-          <div class="card-subtitle">Shipped: 12/12/2025</div>
-          <div class="card-footer">Stock Outward Data</div>
-          <a href="#reports" class="btn btn-custom mt-3">View Details</a>
-        </div>
-      </div>
-    </div>
-
-
-
-    <!-- Additional Content Sections -->
-    <div id="reports" class="mt-5">
-      <h2>Reports</h2>
-      <p>Generate detailed reports for inward and outward stock.</p>
-      <a href="#" class="btn btn-primary">Download Reports</a>
-    </div>
+  <!-- Card 2: Down Arrow -->
+  <div class="card">
+    <button class="arrow-btn down">
+      <i class="bi bi-arrow-down"></i>
+      <span>Outward</span>
+    </button>
   </div>

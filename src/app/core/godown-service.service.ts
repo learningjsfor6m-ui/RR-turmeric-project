@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { GodownDetails } from '../shared/godown-details/godown.interface';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GodownServiceService {
+  $godownId:BehaviorSubject<number> = new BehaviorSubject<number>(0)
   constructor() {}
   godowndetails: GodownDetails[] = [
     {

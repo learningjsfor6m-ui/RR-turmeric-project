@@ -1,4 +1,4 @@
-<div class="container py-4">
+<div class="container py-4" style="margin-top: 0px !important;">
   <h2 class="mb-4">Dashboard</h2>
   {{godownDetails[0].name}}
 
@@ -11,7 +11,7 @@
 
   <!-- Godown cards -->
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-    <div class="col" >
+    <div class="col">
       <div class="card h-100 shadow-sm small-card">
         <div class="card-body">
           <h5 class="card-title">Stock</h5>
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="col" >
+    <div class="col">
       <div class="card h-100 shadow-sm small-card">
         <div class="card-body">
           <h5 class="card-title">Reports</h5>
@@ -32,5 +32,11 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div>
+    <button class="btn btn-primary rounded-circle shadow-lg fab-btn" (click)="gotoInvardOutward()">
+      <i class="bi bi-plus fs-3"></i>
+    </button>
   </div>
 </div>

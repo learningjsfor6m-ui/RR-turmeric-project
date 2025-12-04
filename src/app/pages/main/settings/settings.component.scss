@@ -1,0 +1,52 @@
+
+
+    .banner {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .settings-card {
+      background: rgba(255,255,255,0.12);
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-control,
+    .form-select {
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+    }
+
+    .form-control::placeholder {
+      color: #ddd;
+    }
+
+    .btn-save {
+      background: #667eea;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+    }
+    .btn-save:hover {
+      background: #5568d6;
+    }

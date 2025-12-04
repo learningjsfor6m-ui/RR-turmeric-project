@@ -1,0 +1,74 @@
+
+  <div class="container mt-4">
+
+    <!-- Banner -->
+    <div class="banner">
+      <h1 class="fw-bold">Settings</h1>
+      <p>Manage your profile, preferences, and system settings</p>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="settings-card">
+      <h4 class="fw-bold mb-3">Profile Settings</h4>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" placeholder="John Doe">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-control" placeholder="john@example.com">
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Phone</label>
+          <input type="text" class="form-control" placeholder="+1 234 567 890">
+        </div>
+      </div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="settings-card">
+      <h4 class="fw-bold mb-3">Notification Preferences</h4>
+
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox" checked>
+        <label class="form-check-label">Email Notifications</label>
+      </div>
+
+      <div class="form-check form-switch mb-2">
+        <input class="form-check-input" type="checkbox">
+        <label class="form-check-label">SMS Notifications</label>
+      </div>
+
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" checked>
+        <label class="form-check-label">Push Alerts</label>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div class="settings-card">
+      <h4 class="fw-bold mb-3">Security</h4>
+
+      <div class="mb-3">
+        <label class="form-label">Change Password</label>
+        <input type="password" class="form-control" placeholder="New Password">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Two-Factor Authentication</label>
+        <select class="form-select">
+          <option>Disabled</option>
+          <option>Enabled via Email</option>
+          <option>Enabled via Phone</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-save">Save Changes</button>
+
+  </div>
+
