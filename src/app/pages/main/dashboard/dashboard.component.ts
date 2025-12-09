@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, afterNextRender } from '@angular/core';
 import { GodownServiceService } from '../../../core/godown-service.service';
 import { GodownDetails } from '../../../shared/godown-details/godown.interface';
 import { CommonModule } from '@angular/common';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../../../shared/pipes/filter.pipe';
 import { FilterHeaderComponent } from "../../shared/filter-header/filter-header.component";
+// import { OnpushDemoComponent } from "../demo/onpush-demo/onpush-demo.component";
 
 @Component({
   selector: 'dashboard',
@@ -19,6 +20,7 @@ export class DashboardComponent {
   headingOfPage:string = 'Turmeric Godown Dashboard'
   searchText:string = ''
   selectedItem:string = ''
+  @ViewChild('username') inputRef!: ElementRef<HTMLInputElement>
 constructor(private godownService:GodownServiceService,private router:Router){
 
 }
@@ -37,6 +39,13 @@ ngOnInit(){
   },1000)
 }
 
+// New Lifcycle hooks in 17,18
+// afterRender(() => {
+//   console.log('DOM is ready!')
+// })
+// afterNextRender(() => {
+//   console.log('View is updated after state change')
+// });
 gotoGodownPage(godown:GodownDetails){
 console.log(godown)
 let godownId:number = godown.id

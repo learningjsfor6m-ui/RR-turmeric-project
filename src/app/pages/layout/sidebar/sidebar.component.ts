@@ -15,7 +15,8 @@ export class SidebarComponent {
     { name: 'Analytics', icon: 'bi-graph-up' },
     { name: 'Users', icon: 'bi-people' },
     { name: 'Messages', icon: 'bi-chat' },
-    { name: 'Settings', icon: 'bi-gear' }
+    { name: 'Settings', icon: 'bi-gear' },
+    {name:'Products',icon:'bi-graph-up'}
   ];
   // @Input() isOpen: boolean = true;
 

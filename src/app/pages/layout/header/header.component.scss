@@ -1,3 +1,4 @@
+/* Header Gradient */
 .header-gradient {
   height: 70px;
   background: linear-gradient(135deg, #667eea, #764ba2);
@@ -7,26 +8,16 @@
   z-index: 1000;
 }
 
+/* Navbar Brand */
 .navbar-brand {
   letter-spacing: 1px;
   font-size: 1.2rem;
   animation: glow 2s infinite alternate;
 }
 
-/* Links */
+/* Navbar Links */
 .nav-link {
   position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  height: 2px;
-  width: 0;
-  background: white;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transition: 0.3s;
 }
 
 .nav-link:hover::after {
@@ -47,10 +38,10 @@
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 5px rgba(255,255,255,0.6);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
   }
   to {
-    text-shadow: 0 0 12px rgba(255,255,255,1);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1);
   }
 }
 
@@ -58,5 +49,128 @@
 @media (max-width: 768px) {
   .navbar-brand {
     font-size: 1rem;
+  }
+}
+
+/* Navbar Right Menu */
+.navbar-nav {
+  font-size: 1rem;  /* Set font size for nav items */
+}
+
+/* User Dropdown */
+.nav-item.dropdown {
+  position: relative;
+}
+
+/* Dropdown toggle button (User name + Icon) */
+.nav-link.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  padding: 0.5rem 1rem;  /* Adjust padding */
+  border-radius: 50px;  /* Rounded edges */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-link.dropdown-toggle:hover {
+  background-color: #495057;  /* Darker shade on hover */
+  color: #fff;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  min-width: 200px;
+  padding: 0.5rem 0;
+  border-radius: 10px;
+  background-color: #343a40;  /* Dark background */
+  border: 1px solid #444;  /* Subtle border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Dropdown Menu Items */
+.dropdown-item {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  color: #f8f9fa;  /* Light color */
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #495057;  /* Hover color */
+  color: #fff;  /* White text on hover */
+}
+
+/* Dark Mode Button in the Dropdown */
+.dropdown-item.btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.75rem 1.25rem;
+  color: #f8f9fa;
+  background-color: transparent;  /* Transparent background for button */
+  border: none;
+  font-size: 1rem;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.dropdown-item.btn:hover {
+  background-color: #495057;
+  color: #fff;
+}
+
+/* Divider for items */
+.dropdown-divider {
+  border-color: #444;  /* Subtle divider color */
+}
+
+/* Profile, Settings, etc. icons */
+.bi {
+  font-size: 1.2rem;
+}
+
+/* Optional - Small font size for user name */
+.small {
+  font-size: 0.875rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+  .navbar-nav {
+    font-size: 0.875rem;  /* Smaller font size for mobile */
+  }
+
+  .nav-link.dropdown-toggle {
+    padding: 0.75rem 1rem;  /* Adjust padding for better tap size on mobile */
+    font-size: 1rem;  /* Make text size more appropriate for mobile */
+    border-radius: 8px;  /* Slightly smaller border radius for a cleaner look */
+  }
+
+  /* Make the dropdown menu more accessible and full width on mobile */
+  .dropdown-menu {
+    min-width: 100%;  /* Ensure full width dropdown on mobile */
+    padding: 1rem 0;  /* More padding for readability */
+    box-shadow: none;  /* Remove shadow for mobile */
+    border: none;  /* Remove border for cleaner look */
+  }
+
+  /* Stack the dropdown items for mobile */
+  .dropdown-item {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    text-align: left;  /* Ensure text is left-aligned */
+  }
+
+  /* Adjust the profile icon to make it a bit larger on mobile */
+  .bi-person-circle {
+    font-size: 1.5rem;  /* Larger icon for easier visibility */
+  }
+
+  /* Dark Mode Button */
+  .dropdown-item.btn {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
   }
 }

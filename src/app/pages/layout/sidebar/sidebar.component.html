@@ -8,14 +8,14 @@
 
     <li class="nav-item">
       <a class="nav-link "  routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }" routerLink="" >
+  [routerLinkActiveOptions]="{ exact: true }" routerLink="/layout" >
         <i class="bi bi-speedometer2" ></i>
         <span>Dashboard</span>
       </a>
     </li>
 
     <li class="nav-item" >
-      <a class="nav-link" routerLink="/analytics" routerLinkActive="active"
+      <a class="nav-link" routerLink="/layout/analytics" routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }">
         <i class="bi bi-bar-chart"></i>
         <span>Analytics</span>
@@ -23,7 +23,7 @@
     </li>
 
     <li class="nav-item" >
-      <a class="nav-link" routerLink="/user-lists" routerLinkActive="active"
+      <a class="nav-link" routerLink="/layout/user-lists" routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }">
         <i class="bi bi-people"></i>
         <span>Users</span>
@@ -31,7 +31,7 @@
     </li>
 
     <li class="nav-item" >
-      <a class="nav-link" routerLink="/messages" routerLinkActive="active"
+      <a class="nav-link" routerLink="/layout/messages" routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }">
         <i class="bi bi-envelope"></i>
         <span>Messages</span>
@@ -39,10 +39,18 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" routerLink="/settings" routerLinkActive="active"
+      <a class="nav-link" routerLink="/layout/settings" routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }">
         <i class="bi bi-gear"></i>
         <span>Settings</span>
+      </a>
+    </li>
+
+        <li class="nav-item">
+      <a class="nav-link" routerLink="/layout/products" routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-people"></i>
+        <span>Products</span>
       </a>
     </li>
 

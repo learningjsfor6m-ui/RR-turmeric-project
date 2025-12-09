@@ -8,7 +8,7 @@ import { GodownDetails } from '../../../shared/godown-details/godown.interface';
   templateUrl: './invard-entry.component.html',
   styleUrl: './invard-entry.component.scss',
 })
-export class InvardEntryComponent implements OnInit {
+export default class InvardEntryComponent implements OnInit {
   apiData: GodownDetails[] = [];
   constructor(private godownService: GodownServiceService) {}
 

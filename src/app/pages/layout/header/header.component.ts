@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SidebarService } from '../../../core/sidebar.service';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header',
@@ -13,9 +15,13 @@ export class HeaderComponent {
   // onToggleSidebar() {
   //   this.toggleSidebar.emit();
   // }
- constructor(private sidebarService: SidebarService) {}
+ constructor(private sidebarService: SidebarService,private auth:AuthService,private router:Router) {}
 
 toggleSidebar() {
   this.sidebarService.toggle();
+}
+logout(){
+  this.auth.logout();
+  this.router.navigateByUrl('/login')
 }
 }

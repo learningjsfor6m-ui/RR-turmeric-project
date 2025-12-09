@@ -1,14 +1,21 @@
 <div class="container py-4">
   <h2 class="mb-4" [class]="isLoading ? 'colorRed':'colorBlack'">{{headingOfPage}}</h2>
-
-  <filter-header [compName] = "headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"></filter-header>
+  <!-- <div class="row">
+    <div class="col-md-4">
+      <div class="input-group">
+        <onpush-demo></onpush-demo>
+      </div>
+    </div>
+  </div> -->
+  <filter-header [compName]="''" (changeEvent)="selectedItem"
+    (changeInput)="getText($event)"></filter-header>
   <!-- isLoading spinner -->
   <div *ngIf="isLoading" class="text-center my-5">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">isLoading...</span>
     </div>
   </div>
-<!-- {{searchText}} -->
+  <!-- {{searchText}} -->
   <!-- Godown cards -->
   <section *ngIf="!isLoading">
 

@@ -1,0 +1,10 @@
+<p>{{ user.name }}</p>
+<button (click)="changeName()">Change</button>
+<h2>Parent</h2>
+    <button (click)="mutateUser()">Mutate user.name</button>
+    <button (click)="replaceUser()">Replace user object</button>
+    <input [(ngModel)]="user.name">
+
+    <child [user]="user" (counterEvent)="getTheCount($event)"></child>
+{{count}}
+    <div>{{ data$ | async }}</div>

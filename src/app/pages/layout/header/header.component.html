@@ -16,49 +16,64 @@
 
     </div>
 
-    <!-- MOBILE TOGGLER -->
+
+
+
+
     <button
-      class="navbar-toggler text-white"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarContent">
-      <span><i class="bi bi-three-dots fs-4 text-white"></i></span>
-    </button>
+  class="navbar-toggler text-white"
+  type="button"
+  data-bs-toggle="collapse"
+  data-bs-target="#navbarContent">
+  <span><i class="bi bi-three-dots fs-4 text-white"></i></span>
+</button>
 
-    <!-- RIGHT MENU -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+<!-- RIGHT MENU -->
+<div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+  <ul class="navbar-nav align-items-center gap-2">
 
-      <ul class="navbar-nav align-items-center gap-2">
+    <!-- <li class="nav-item">
+      <a class="nav-link text-white" href="#">Dashboard</a>
+    </li> -->
 
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white" href="#">Dashboard</a>
-        </li> -->
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Profile</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Settings</a>
-        </li>
-
-        <!-- DARK MODE BUTTON (for later) -->
-        <li class="nav-item">
-          <button class="btn btn-outline-light btn-sm ms-2">
-            <i class="bi bi-moon-fill"></i>
+    <!-- User Dropdown -->
+    <!-- <li class="nav-item dropdown ms-3">
+      <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-person-circle fs-4 me-1"></i> Amir
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+          <button class="dropdown-item btn btn-outline-light btn-sm">
+            <i class="bi bi-moon-fill"></i> Dark Mode
           </button>
         </li>
-
-        <!-- USER -->
-        <li class="nav-item ms-3">
-          <div class="d-flex align-items-center text-white small">
-            <i class="bi bi-person-circle fs-4 me-1"></i>
-            Amir
-          </div>
-        </li>
-
       </ul>
-    </div>
+    </li> -->
+<li class="nav-item dropdown ms-3">
+  <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-person-circle fs-4 me-1"></i> Amir
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+    <li><a class="dropdown-item">Profile</a></li>
+    <li><a class="dropdown-item">Settings</a></li>
+    <li><a class="dropdown-item" (click)="logout()">logout</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <button class="dropdown-item btn btn-outline-light btn-sm">
+        <i class="bi bi-moon-fill"></i> Dark Mode
+      </button>
+    </li>
+  </ul>
+</li>
+  </ul>
+
+
+
+
+</div>
 
   </div>
 </nav>
