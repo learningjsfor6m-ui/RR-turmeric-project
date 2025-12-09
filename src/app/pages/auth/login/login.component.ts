@@ -47,7 +47,7 @@ export class LoginComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[@/!]).{8,}$'),
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[@\/!]).{8,}$'),
         ],
       ],
     });
@@ -59,12 +59,14 @@ export class LoginComponent {
     // });
   }
   // Using Tempalte Driven form
-  login() {
+  login(form:any) {
     let creds: User = {
       email: this.loginform.email,
       password: this.loginform.password,
     };
+    if(form.valid){
     this.loginCentre(creds);
+    }
   }
 
   // Using Reactive form
