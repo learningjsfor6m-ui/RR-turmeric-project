@@ -2,10 +2,11 @@
   <div class="container mt-4">
 
     <!-- Banner -->
-    <div class="banner">
+    <!-- <div class="banner">
       <h1 class="fw-bold">Messages</h1>
       <p>Your recent conversations</p>
-    </div>
+    </div> -->
+ <filter-header [compName] = "headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"></filter-header>
 
     <!-- Messages List -->
     <div class="mt-4">

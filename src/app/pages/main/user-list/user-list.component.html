@@ -2,10 +2,11 @@
   <div class="container mt-4">
 
     <!-- Banner Title -->
-    <div class="banner">
+    <!-- <div class="banner">
       <h1 class="fw-bold">User Management</h1>
       <p>All registered users are listed below.</p>
-    </div>
+    </div> -->
+ <filter-header [compName] = "headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"></filter-header>
 
     <!-- User Table -->
     <div class="table-container mt-4">
