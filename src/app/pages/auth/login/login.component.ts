@@ -11,10 +11,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CharPipe } from "../../../shared/pipes/charactercheckPipe/char.pipe";
 
 @Component({
   selector: 'login',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, CharPipe],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

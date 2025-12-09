@@ -33,12 +33,12 @@
           @if( f.submitted && email.errors){
           <div class="invalid-feedback">
             @if(email.errors['required']){
-            <span>Email required</span>
+            <span>{{'emailrequired' | charCheck}}</span>
             }
             @if(email.errors['minLength']){
-            <span>Email should be min 6 length</span>
+            <span>{{ 'emaillength' | charCheck}}</span>
             }@if (email.errors['email']) {
-            <div>Email is invalid</div>
+            <div>{{ 'emailpattern' | charCheck}}</div>
             }
           </div>
           }
@@ -52,13 +52,13 @@
           @if(f.submitted && password.errors){
           <div class="invalid-feedback">
             @if(password.errors['required']){
-            <span>Password required</span>
+            <span>{{ 'passwordrequired' | charCheck}}</span>
             }
             @if(password.errors['pattern']){
-            <span>Password pattern</span>
+            <span>{{ 'passwordpattern' | charCheck}}</span>
             }
             @if(password.errors['minlength']){
-            <span>Password minlength</span>
+            <span>{{ 'passwordminlength' | charCheck}}</span>
             }
           </div>
           }
