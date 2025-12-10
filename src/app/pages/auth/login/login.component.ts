@@ -2,7 +2,13 @@ import { Component, signal } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../shared/user';
 import { Router } from '@angular/router';
-// import { form, required, email as emailValidator, minLength } from '@angular/forms/signals'
+import {
+  form,
+  required,
+  email as emailValidator,
+  Field,
+  email,
+} from '@angular/forms/signals';
 import {
   FormBuilder,
   FormGroup,
@@ -11,11 +17,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CharPipe } from "../../../shared/pipes/charactercheckPipe/char.pipe";
+import { CharPipe } from '../../../shared/pipes/charactercheckPipe/char.pipe';
 
 @Component({
   selector: 'login',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, CharPipe],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, CharPipe,Field],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -30,10 +36,15 @@ export class LoginComponent {
   // Reactive
   loginFormReactive!: FormGroup;
 
-
   // Signals
   loginModel = signal<User>({ email: '', password: '' });
-  // loginFormSignal = form()
+  model = signal({ email: '', password: '' });
+
+loginForm = form(this.model, (login) => {
+    required(login.email, { message: 'Email is required' });
+    email(login.email, { message: 'Invalid email' });
+    required(login.password, { message: 'Password is required' });
+  });
 
   constructor(
     private auth: AuthService,
@@ -47,7 +58,7 @@ export class LoginComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[@\/!]).{8,}$'),
+          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[@/!]).{8,}$'),
         ],
       ],
     });
@@ -59,13 +70,13 @@ export class LoginComponent {
     // });
   }
   // Using Tempalte Driven form
-  login(form:any) {
+  login(form: any) {
     let creds: User = {
       email: this.loginform.email,
       password: this.loginform.password,
     };
-    if(form.valid){
-    this.loginCentre(creds);
+    if (form.valid) {
+      this.loginCentre(creds);
     }
   }
 
@@ -83,10 +94,17 @@ export class LoginComponent {
   }
 
   // Using Signals
-  submitSignalForm(){
-
+  submitSignalForm() {
+    if (this.loginForm().valid()) {
+      console.log('Login data:', this.model());
+      let creds: User = {
+      email: this.model().email,
+      password: this.model().password,
+    };
+      // Call login API here
+      this.loginCentre(creds);
+    }
   }
-
 
   loginCentre(value: User) {
     let creds: User = value;
