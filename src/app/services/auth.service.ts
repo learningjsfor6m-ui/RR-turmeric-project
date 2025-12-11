@@ -10,6 +10,7 @@ export class AuthService {
   private authSecretKey = 'Bearer Token';
   constructor() { }
 
+  // login api call set authtoken here
   login(creds:User):Observable<any>{
     let {email,password} = creds
     if(email==='Amir@gmail.com' && password ==="Passw@123"){
@@ -25,10 +26,13 @@ export class AuthService {
     }
   }
 
+   // Authentication method call from here for authguard
     isAuthenticatedUser(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true'
     //this.isAuthenticated.asObservable();
   }
+
+  // logout method call from here
    logout() {
     // Simulate logging out
     localStorage.removeItem('isLoggedIn');
