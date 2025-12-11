@@ -106,6 +106,7 @@ loginForm = form(this.model, (login) => {
     }
   }
 
+  // Main login Api call here
   loginCentre(value: User) {
     let creds: User = value;
     this.auth.login(creds).subscribe((res: any) => {
@@ -115,9 +116,12 @@ loginForm = form(this.model, (login) => {
       }
     });
   }
+
+  //get email control error
   get emailControl() {
     return this.loginFormReactive.get('email');
   }
+  //get email control error
   get passwordControl() {
     return this.loginFormReactive.get('password');
   }
