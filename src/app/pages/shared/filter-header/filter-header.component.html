@@ -1,86 +1,62 @@
 <!-- <div class="container mt-4"> -->
 
-  <!-- MAIN HEADER -->
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h2 >{{compName}}</h2>
+<!-- MAIN HEADER -->
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <h2>{{compName}}</h2>
 
-    <!-- ACTION BUTTONS -->
-    <!-- <div class="btn-group">
-      <button class="btn btn-success">
-        <i class="bi bi-plus-lg"></i> Add Student
-      </button>
-      <button class="btn btn-outline-secondary">
-        <i class="bi bi-arrow-repeat"></i>
-      </button>
-      <button class="btn btn-outline-primary">
-        <i class="bi bi-download"></i> Export
-      </button>
-    </div> -->
-  </div>
+</div>
 
-  <!-- SUB HEADER with FILTERS & SEARCH -->
-  <div class="bg-light border rounded p-3 mb-4">
-    <div class="row g-3 align-items-center">
+<!-- SUB HEADER with FILTERS & SEARCH -->
+<div class="bg-light border rounded p-3 mb-4">
+  <div class="row g-3 align-items-center">
 
-      <!-- FILTER DROPDOWN -->
-      <div class="col-md-3">
-        <div class="input-group">
-          <button class="btn btn-outline-primary dropdown-toggle" type="button"
-            id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-funnel-fill"></i> Filter By {{setMessage}}
-          </button>
-
-          <ul class="dropdown-menu" aria-labelledby="filterDropdown">
-            <li><a class="dropdown-item" (click)="sendMessage('name','Name')"><i class="bi bi-person"></i> Name</a></li>
-            <li><a class="dropdown-item" (click)="sendMessage('','City')"><i class="bi bi-geo-alt"></i> City</a></li>
-            <li><a class="dropdown-item" (click)="sendMessage('','Status')"><i class="bi bi-check-circle"></i> Status</a></li>
-          </ul>
-
-          <input type="text" class="form-control" placeholder="Filter value..." [(ngModel)]="value" (ngModelChange)="updateValue($event)">
-        </div>
-      </div>
-
-      <!-- SORT DROPDOWN -->
-      <div class="col-md-3">
-        <div class="input-group">
-          <span class="input-group-text"><i class="bi bi-sort-alpha-down"></i></span>
-          <select class="form-select">
-            <option selected disabled>Sort By</option>
-            <option>Name (A → Z)</option>
-            <option>Name (Z → A)</option>
-            <option>Status</option>
-            <option>City</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- SEARCH BAR -->
-      <div class="col-md-4">
-        <div class="input-group">
-          <!-- <i class="bi bi-arrow-left-right"></i>
-          <i class="bi bi-arrow-repeat"></i>
-          <i class="bi bi-arrow-down-up"></i>
-          <i class="bi bi-shuffle"></i>
-          <i class="bi bi-arrow-clockwise"></i> -->
-          <!-- <i class="bi bi-arrow-left-right fs-5"></i> -->
-          <i class="bi bi-arrow-left-right text-primary fs-4" (click)="changeLayout()"></i>
-          <!-- <button class="btn btn-outline-secondary">
-  <i class="bi bi-arrow-left-right me-1"></i> Swap
-</button> -->
-          <!-- <span class="input-group-text"><i class="bi bi-search"></i></span> -->
-          <!-- <input type="text" class="form-control" placeholder="Search students..."> -->
-        </div>
-      </div>
-
-      <!-- APPLY ACTION BUTTON -->
-      <!-- <div class="col-md-2 d-grid">
-        <button class="btn btn-primary">
-          <i class="bi bi-check2"></i> Apply
+    <!-- FILTER DROPDOWN -->
+    <div class="col-md-3">
+      <div class="input-group">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="filterDropdown"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-funnel-fill"></i> Filter By {{setMessage}}
         </button>
-      </div> -->
 
+        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+          <li><a class="dropdown-item" (click)="sendMessage('name','Name')"><i class="bi bi-person"></i> Name</a></li>
+          <li><a class="dropdown-item" (click)="sendMessage('','City')"><i class="bi bi-geo-alt"></i> City</a></li>
+          <li><a class="dropdown-item" (click)="sendMessage('','Status')"><i class="bi bi-check-circle"></i> Status</a>
+          </li>
+        </ul>
+
+        <input type="text" class="form-control" placeholder="Filter value..." [(ngModel)]="value"
+          (ngModelChange)="updateValue($event)">
+      </div>
+    </div>
+
+    <!-- SORT DROPDOWN -->
+    <div class="col-md-3">
+      <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-sort-alpha-down"></i></span>
+        <select class="form-select">
+          <option selected disabled>Sort By</option>
+          <option>Name (A → Z)</option>
+          <option>Name (Z → A)</option>
+          <option>Status</option>
+          <option>City</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="col-md-3">
+      <div class="input-group">
+        <i class="bi bi-arrow-left-right text-primary fs-4" (click)="changeLayout()"></i>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="input-group">
+        <button class="btn btn-success">
+          <i class="bi bi-plus-circle me-1"></i>
+          Add New
+        </button>
+      </div>
     </div>
   </div>
-
-
-<!-- </div> -->
+</div>
