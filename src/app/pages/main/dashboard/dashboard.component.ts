@@ -20,6 +20,7 @@ export class DashboardComponent {
   headingOfPage:string = 'Turmeric Godown Dashboard'
   searchText:string = ''
   selectedItem:string = ''
+  isLayout:string ='card'
   @ViewChild('username') inputRef!: ElementRef<HTMLInputElement>
 constructor(private godownService:GodownServiceService,private router:Router){
 
@@ -55,5 +56,13 @@ this.router.navigate(['/layout/stock-report', godownId]);
 getText($event:string){
   this.searchText = $event
 
+}
+getLayoutFlag(event:any){
+console.log(event)
+if(event){
+this.isLayout = 'card'
+}else{
+this.isLayout = 'table'
+}
 }
 }

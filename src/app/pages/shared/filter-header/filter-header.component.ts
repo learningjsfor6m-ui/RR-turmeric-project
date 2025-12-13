@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonService } from '../../../services/common.service';
 
 @Component({
   selector: 'filter-header',
@@ -14,12 +15,18 @@ export class FilterHeaderComponent implements OnInit {
   value = '';
   @Output() changeEvent = new EventEmitter<string>();
   @Output() changeInput = new EventEmitter<string>();
+  @Output() changeLayoutFlag = new EventEmitter<boolean>();
+  isFlag:boolean= false
   setMessage: string='';
 
-  constructor() {}
+
+  constructor(public common:CommonService) {}
 
   ngOnInit() {
     console.log(this.filterName);
+    this.common.layouFlag$.subscribe(flag=>{
+      this.isFlag = flag
+    })
   }
 
   sendMessage(name: string,type:string) {
@@ -31,5 +38,11 @@ export class FilterHeaderComponent implements OnInit {
     debugger
     this.value = newValue;
     this.changeInput.emit(newValue);
+  }
+
+  changeLayout(){
+    let value = this.isFlag ? false:true
+    this.common.layouFlag$.next(value)
+    this.changeLayoutFlag.emit(value)
   }
 }

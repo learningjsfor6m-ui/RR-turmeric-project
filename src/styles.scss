@@ -117,16 +117,18 @@
     }
 
     .row {
-      margin-top: 30px;
+      // margin-top: 30px;
     }
 .chart-container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
 }
-
+.pt-5{
+  padding-top: 0rem !important
+}
 .container {
-  padding: 20px;
+  // padding: 20px;
 }
 /* Dashboard styling */
 body {
