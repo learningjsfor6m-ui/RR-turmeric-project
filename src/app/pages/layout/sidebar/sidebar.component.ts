@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
 import { SidebarService } from '../../../core/sidebar.service';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Menu } from '../../../shared/interfaces/menu/menu.interface';
 
 @Component({
   selector: 'sidebar',
@@ -10,14 +11,45 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  menu = [
-    { name: 'Home', icon: 'bi-house-door' },
-    { name: 'Analytics', icon: 'bi-graph-up' },
-    { name: 'Users', icon: 'bi-people' },
-    { name: 'Messages', icon: 'bi-chat' },
-    { name: 'Settings', icon: 'bi-gear' },
-    {name:'Products',icon:'bi-graph-up'}
-  ];
+  menu:Menu[] = [
+  {
+    label: 'Dashboard',
+    icon: 'bi bi-speedometer2',
+    route: '/layout',
+    exact: true
+  },
+  {
+    label: 'Analytics',
+    icon: 'bi bi-bar-chart',
+    route: '/layout/analytics',
+    exact: true
+  },
+  {
+    label: 'Users',
+    icon: 'bi bi-people',
+    route: '/layout/user-lists',
+    exact: true
+  },
+  {
+    label: 'Messages',
+    icon: 'bi bi-envelope',
+    route: '/layout/messages',
+    exact: true
+  },
+  {
+    label: 'Settings',
+    icon: 'bi bi-gear',
+    route: '/layout/settings',
+    exact: true
+  },
+  {
+    label: 'Products',
+    icon: 'bi bi-people',
+    route: '/layout/products',
+    exact: true
+  }
+];
+;
   // @Input() isOpen: boolean = true;
 
   isOpen = true;

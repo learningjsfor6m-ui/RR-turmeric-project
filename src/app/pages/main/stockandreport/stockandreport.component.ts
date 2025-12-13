@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { GodownServiceService } from '../../../core/godown-service.service';
-import { GodownDetails } from '../../../shared/godown-details/godown.interface';
+import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
 import { CommonModule } from '@angular/common';
 
 @Component({

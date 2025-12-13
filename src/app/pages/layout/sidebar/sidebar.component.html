@@ -5,55 +5,14 @@
 <div class="sidebar" [class.closed]="!isOpen">
 
   <ul class="nav flex-column text-white">
-
+    @for(m of menu;track m){
     <li class="nav-item">
-      <a class="nav-link "  routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }" routerLink="/layout" >
-        <i class="bi bi-speedometer2" ></i>
-        <span>Dashboard</span>
+      <a class="nav-link " routerLinkActive="{{m.exact}}" [routerLinkActiveOptions]="{exact:m.exact}" routerLink="{{m.route}}">
+        <i class="{{m.icon}}"></i>
+        <span>{{m.label}}</span>
       </a>
     </li>
-
-    <li class="nav-item" >
-      <a class="nav-link" routerLink="/layout/analytics" routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-bar-chart"></i>
-        <span>Analytics</span>
-      </a>
-    </li>
-
-    <li class="nav-item" >
-      <a class="nav-link" routerLink="/layout/user-lists" routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-people"></i>
-        <span>Users</span>
-      </a>
-    </li>
-
-    <li class="nav-item" >
-      <a class="nav-link" routerLink="/layout/messages" routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-envelope"></i>
-        <span>Messages</span>
-      </a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/layout/settings" routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-gear"></i>
-        <span>Settings</span>
-      </a>
-    </li>
-
-        <li class="nav-item">
-      <a class="nav-link" routerLink="/layout/products" routerLinkActive="active"
-  [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-people"></i>
-        <span>Products</span>
-      </a>
-    </li>
-
+    }
   </ul>
 
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GodownServiceService } from '../../../core/godown-service.service';
-import { GodownDetails } from '../../../shared/godown-details/godown.interface';
+import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
 
 @Component({
   selector: 'invard-entry',

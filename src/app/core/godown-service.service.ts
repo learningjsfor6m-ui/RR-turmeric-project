@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GodownDetails } from '../shared/godown-details/godown.interface';
+import { GodownDetails } from '../shared/interfaces/godown-details/godown.interface';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({

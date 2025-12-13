@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild, afterNextRender } from '@angular/core';
 import { GodownServiceService } from '../../../core/godown-service.service';
-import { GodownDetails } from '../../../shared/godown-details/godown.interface';
+import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
