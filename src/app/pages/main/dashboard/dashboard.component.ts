@@ -49,11 +49,11 @@ ngOnInit(){
 gotoGodownPage(godown:GodownDetails){
 console.log(godown)
 let godownId:number = godown.id
-this.router.navigate(['/stock-report', godownId]);
+this.router.navigate(['/layout/stock-report', godownId]);
 }
 
 getText($event:string){
   this.searchText = $event
-debugger
+
 }
 }
