@@ -18,10 +18,11 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CharPipe } from '../../../shared/pipes/charactercheckPipe/char.pipe';
+import { FormErrorsComponent } from "../../../shared/components/form-errors/form-errors.component";
 
 @Component({
   selector: 'login',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, CharPipe,Field],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, CharPipe, Field, FormErrorsComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

@@ -1,0 +1,34 @@
+
+          <!-- @if(email.errors['required']){
+          <span style="color:red">required</span>
+          }
+          @if(email.errors['minLength']){
+          <span style="color:red">emailminLength</span>
+          }@if (email.errors['email']) {
+          <div style="color:red">emailpattern </div>
+          } -->
+          <!-- </div> -->
+
+          <!-- @if(password.errors['required']){
+          <span style="color:red">passwordrequired</span>
+          }
+          @if(password.errors['pattern']){
+          <span style="color:red"> passwordpattern</span>
+          }
+          @if(password.errors['minlength']){
+          <span style="color:red">passwordminlength</span>
+          } -->
+          <!-- </div> -->
+
+          <!-- @for (err of loginForm.email().errors(); track err.kind) {
+          @if (loginForm.email().touched() && loginForm.email().invalid()) {
+          <p style="color: red;">*{{ err.message }}</p>
+          }
+          } -->
+
+
+          <!-- @for (err of loginForm.password().errors(); track err.kind) {
+          @if (loginForm.password().touched() && loginForm.password().invalid()) {
+          <p style="color: red;">*{{ err.message }}</p>
+          }
+          } -->

@@ -35,15 +35,6 @@
 
           <span style="color:red">{{ email.errors | charCheck:'email' }}</span>
 
-          <!-- @if(email.errors['required']){
-          <span style="color:red">required</span>
-          }
-          @if(email.errors['minLength']){
-          <span style="color:red">emailminLength</span>
-          }@if (email.errors['email']) {
-          <div style="color:red">emailpattern </div>
-          } -->
-          <!-- </div> -->
           }
 
           <!-- Password  -->
@@ -55,16 +46,7 @@
           @if(f.submitted && password.errors){
           <!-- <div class="invalid-feedback"> -->
           <span style="color:red">{{ password.errors | charCheck:'email' }}</span>
-          <!-- @if(password.errors['required']){
-          <span style="color:red">passwordrequired</span>
-          }
-          @if(password.errors['pattern']){
-          <span style="color:red"> passwordpattern</span>
-          }
-          @if(password.errors['minlength']){
-          <span style="color:red">passwordminlength</span>
-          } -->
-          <!-- </div> -->
+
           }
           <button type="submit" class="submit-btn">Login</button>
         </form>
@@ -122,19 +104,13 @@
         <form (ngSubmit)="submitSignalForm()">
           <label for="email" class="form-label">Email</label>
           <input class="form-control" type="email" [field]="loginForm.email" placeholder="Enter email" />
-          @for (err of loginForm.email().errors(); track err.kind) {
-          @if (loginForm.email().touched() && loginForm.email().invalid()) {
-          <p style="color: red;">*{{ err.message }}</p>
-          }
-          }
+          <form-errors [controls]="loginForm.email()"></form-errors>
+
 
           <label for="password" class="form-label">Password</label>
           <input class="form-control" type="password" [field]="loginForm.password" placeholder="Enter password" />
-          @for (err of loginForm.password().errors(); track err.kind) {
-          @if (loginForm.password().touched() && loginForm.password().invalid()) {
-          <p style="color: red;">*{{ err.message }}</p>
-          }
-          }
+
+          <form-errors [controls]="loginForm.password()"></form-errors>
 
           <button type="submit" [disabled]="!loginForm().valid()">Sign In</button>
         </form>
