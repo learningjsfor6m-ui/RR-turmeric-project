@@ -9,6 +9,11 @@
   </div> -->
   <filter-header [compName]="headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"
     (changeLayoutFlag)="getLayoutFlag($event)"></filter-header>
+
+    <div class="container">
+          <dynamic-form [form]="addNewGodown"></dynamic-form>
+
+    </div>
   <!-- isLoading spinner -->
   <div *ngIf="isLoading" class="text-center my-5">
     <div class="spinner-border text-primary" role="status">
@@ -143,7 +148,7 @@
             </tr>
 
             <!-- No data -->
-            <tr *ngIf="!godownDetails?.length">
+            <tr *ngIf="!godownDetails.length">
               <td colspan="12" class="text-center text-muted">
                 No godown records found
               </td>

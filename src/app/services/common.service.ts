@@ -5,5 +5,5 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CommonService {
-  layouFlag$ = new BehaviorSubject<boolean>(false)
+  layouFlag$ = new BehaviorSubject<string>('')
 }

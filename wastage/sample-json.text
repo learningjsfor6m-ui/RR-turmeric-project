@@ -1,0 +1,113 @@
+formControls: [
+    {
+      name: 'firstName',
+      label: 'First Name',
+      value: '',
+      palceholder: '',
+      class: 'col-md-6',
+      type: 'text',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: 'first Name required',
+        },
+        {
+          validationName: 'maxlength',
+          maxLength: 15,
+          message: 'first Name should be 15 characters',
+        },
+      ],
+    },
+    {
+      name: 'lasttName',
+      label: 'Last Name',
+      value: '',
+      palceholder: '',
+      class: 'col-md-6',
+      type: 'text',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: 'last Name required',
+        },
+        {
+          validationName: 'minlength',
+          minLength: 5,
+          message: 'last Name length should be 5',
+        },
+      ],
+    }
+    ,
+    {
+      name: 'email',
+      label: 'Email',
+      value: '',
+      palceholder: '',
+      class: 'col-md-6',
+      type: 'text',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: 'last Name required',
+        },
+        {
+          validationName: 'email',
+          email: "email",
+          message: 'Email is not valid',
+        },
+      ],
+    },
+    {
+      name: 'gender',
+      label: 'gender',
+      value: '',
+      palceholder: '',
+      class: 'col-md-6',
+      radioOptions: ['male', 'female'],
+      type: 'radio',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: ' gender is required',
+        },
+      ],
+    },
+    {
+      name: 'pacjage',
+      label: 'Package',
+      palceholder: '',
+      class: 'col-md-6',
+      options: [
+        { id: 1, value: 'monthly' },
+        { id: 2, value: 'quarterly' },
+        { id: 3, value: 'yearly' },
+      ],
+      type: 'select',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: 'Package is required',
+        },
+      ],
+    },
+    {
+      name: 'enquiryDate',
+      label: 'Date of Enquiry',
+      palceholder: '',
+      class: 'col-md-6',
+
+      type: 'date',
+      validators: [
+        {
+          validationName: 'required',
+          required: true,
+          message: 'Enquiry date is required',
+        },
+      ],
+    },
+  ],

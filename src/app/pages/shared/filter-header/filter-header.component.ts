@@ -15,8 +15,9 @@ export class FilterHeaderComponent implements OnInit {
   value = '';
   @Output() changeEvent = new EventEmitter<string>();
   @Output() changeInput = new EventEmitter<string>();
-  @Output() changeLayoutFlag = new EventEmitter<boolean>();
-  isFlag:boolean= false
+  @Output() changeLayoutFlag = new EventEmitter<string>();
+  @Input() formData =[]
+  isFlag:string= ''
   setMessage: string='';
 
 
@@ -41,7 +42,7 @@ export class FilterHeaderComponent implements OnInit {
   }
 
   changeLayout(){
-    let value = this.isFlag ? false:true
+    let value = this.isFlag ? 'card':'table'
     this.common.layouFlag$.next(value)
     this.changeLayoutFlag.emit(value)
   }

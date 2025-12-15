@@ -1,0 +1,38 @@
+{{form.formTitle}}
+<form #myForm="ngForm" class="row" [formGroup]="dynamicForGrp">
+  <ng-container *ngFor="let control of form.formControls">
+    <div *ngIf="['text','email','number','date','password'].includes(control.type)" [class]="control.class">
+      <label class="form-label" for="">{{control.label}}</label>
+      <input formControlName="{{control.name}}" class="form-control" [type]="control.type">
+      <small class="text-danger"
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+    </div>
+    <div *ngIf="control.type == 'select'">
+      <select formControlName="{{control.name}}" class="form-select" aria-label="Default select example">
+        <option value="" selected>select</option>
+        <ng-container *ngFor="let opt of control.options">
+          <option [value]="opt.value"> {{opt.value}}</option>
+        </ng-container>
+      </select>
+      <small class="text-danger"
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+    </div>
+
+    <div *ngIf="control.type == 'radio'">
+      <ng-container *ngFor="let row of control.radioOptions">
+        <div class="form-check">
+          <input type="radio" formControlName="{{control.name}}" [value]="row" class="form-check-input">
+          <label for="control.name" class="form-check-label">{{row}}</label>
+        </div>
+
+      </ng-container>
+      <small class="text-danger"
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+    </div>
+  </ng-container>
+  <div class="col-12">
+    <button class="btn btn-primary" (click)="onSubmit()" type="submit">{{form.saveBtnTitle}}</button>
+    <button class="btn btn-danger" (click)="resetBtn()" type="submit">{{form.resetBtnTitle}}</button>
+
+  </div>
+</form>
