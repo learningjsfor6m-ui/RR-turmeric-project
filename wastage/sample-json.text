@@ -111,3 +111,57 @@ formControls: [
       ],
     },
   ],
+
+
+  buildDynamicForm() {
+    if (!this.form?.formControls) return;
+
+    this.form.formControls.forEach((control: any) => {
+      const validators = this.mapValidators(control.validators);
+
+      this.dynamicForGrp.addControl(
+        control.name,
+        this.fb.control(control.value || '', validators)
+      );
+    });
+  }
+
+  mapValidators(validators: any[] = []) {
+    const formValidators: any = [];
+
+    validators.forEach((val) => {
+      if (val.validationName === 'required')
+        formValidators.push(Validators.required);
+      if (val.validationName === 'email') formValidators.push(Validators.email);
+      if (val.validationName === 'minlength')
+        formValidators.push(Validators.minLength(val.minLength));
+      if (val.validationName === 'maxlength')
+        formValidators.push(Validators.maxLength(val.maxLength));
+      if (val.validationName === 'pattern')
+        formValidators.push(Validators.pattern(val.pattern));
+    });
+
+    return formValidators;
+  }
+
+    const resetValues: any = {};
+  this.form.formControls.forEach((control: any) => {
+    resetValues[control.name] = control.value || '';
+  });
+
+  // 2. Reset the form
+  this.dynamicForGrp.reset(resetValues);
+
+  // 3. Clear errors & state manually (CRITICAL)
+  Object.keys(this.dynamicForGrp.controls).forEach(key => {
+    const ctrl = this.dynamicForGrp.get(key);
+    ctrl?.setErrors(null);
+    ctrl?.markAsPristine();
+    ctrl?.markAsUntouched();
+    ctrl?.updateValueAndValidity({ emitEvent: false });
+  });
+
+  // 4. Reset form group state
+  this.dynamicForGrp.markAsPristine();
+  this.dynamicForGrp.markAsUntouched();
+  this.dynamicForGrp.updateValueAndValidity({ emitEvent: false });

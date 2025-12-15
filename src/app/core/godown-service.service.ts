@@ -8,7 +8,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 export class GodownServiceService {
   $godownId:BehaviorSubject<number> = new BehaviorSubject<number>(0)
   constructor() {}
-  godowndetails: GodownDetails[] = [
+  godowndetails$: GodownDetails[] = [
     {
       id: 1,
       name: 'Turmeric Warehouse',
@@ -85,6 +85,6 @@ export class GodownServiceService {
   ];
 
   getGodowndetails(): Observable<GodownDetails[]> {
-    return of(this.godowndetails);
+    return of(this.godowndetails$);
   }
 }

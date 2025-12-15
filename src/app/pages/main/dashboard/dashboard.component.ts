@@ -7,13 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from '../../../shared/pipes/filter.pipe';
 import { FilterHeaderComponent } from "../../shared/filter-header/filter-header.component";
 import { DynamicFormComponent } from "../../shared/dynamic-form/dynamic-form.component";
-import { formConfig } from '../../shared/config';
-import { IForm } from '../../../shared/interfaces/dynamic-form/form.interface';
+
 // import { OnpushDemoComponent } from "../demo/onpush-demo/onpush-demo.component";
 
 @Component({
   selector: 'dashboard',
-  imports: [CommonModule, FormsModule, FilterPipe, FilterHeaderComponent, DynamicFormComponent],
+  imports: [CommonModule, FormsModule, FilterPipe, FilterHeaderComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -25,7 +24,7 @@ export class DashboardComponent {
   selectedItem:string = ''
   isLayout:string ='card'
   @ViewChild('username') inputRef!: ElementRef<HTMLInputElement>
-  addNewGodown = formConfig as IForm
+
 constructor(private godownService:GodownServiceService,private router:Router){
 
 }

@@ -1,11 +1,14 @@
-{{form.formTitle}}
-<form #myForm="ngForm" class="row" [formGroup]="dynamicForGrp">
+<div class="modal-header">
+  <h5 class="modal-title">{{form.formTitle}}</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<form class="row" [formGroup]="dynamicForGrp">
   <ng-container *ngFor="let control of form.formControls">
     <div *ngIf="['text','email','number','date','password'].includes(control.type)" [class]="control.class">
       <label class="form-label" for="">{{control.label}}</label>
       <input formControlName="{{control.name}}" class="form-control" [type]="control.type">
       <small class="text-danger"
-        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || isSubmitted)">{{getValidationErrors(control)}}</small>
     </div>
     <div *ngIf="control.type == 'select'">
       <select formControlName="{{control.name}}" class="form-select" aria-label="Default select example">
@@ -15,7 +18,7 @@
         </ng-container>
       </select>
       <small class="text-danger"
-        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || isSubmitted)">{{getValidationErrors(control)}}</small>
     </div>
 
     <div *ngIf="control.type == 'radio'">
@@ -27,12 +30,28 @@
 
       </ng-container>
       <small class="text-danger"
-        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || myForm.submitted)">{{getValidationErrors(control)}}</small>
+        *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || isSubmitted)">{{getValidationErrors(control)}}</small>
     </div>
   </ng-container>
-  <div class="col-12">
-    <button class="btn btn-primary" (click)="onSubmit()" type="submit">{{form.saveBtnTitle}}</button>
-    <button class="btn btn-danger" (click)="resetBtn()" type="submit">{{form.resetBtnTitle}}</button>
 
+  <div class="modal-footer">
+
+    <!-- <div class="col-12"> -->
+    <button class="btn btn-primary" (click)="onSubmit()" type="submit">{{form.saveBtnTitle}}</button>
+    <button class="btn btn-danger" (click)="resetDynamicForm()" type="submit">{{form.resetBtnTitle}}</button>
+
+    <!-- </div> -->
   </div>
 </form>
+
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="successToast" class="toast text-bg-success border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        ✅ Form submitted successfully!
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
