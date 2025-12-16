@@ -34,20 +34,19 @@
     <div class="col-md-3">
       <div class="input-group">
         <span class="input-group-text"><i class="bi bi-sort-alpha-down"></i></span>
-        <select class="form-select">
+        <select class="form-select" (change)="sort($event)">
           <option selected disabled>Sort By</option>
-          <option>Name (A → Z)</option>
-          <option>Name (Z → A)</option>
-          <option>Status</option>
-          <option>City</option>
+          @for(option of sortOpt;track option.id){
+           <option  [value]="option | json">{{ option.label }}</option>
+          }
         </select>
       </div>
     </div>
 
     <!-- SEARCH BAR -->
-    <div class="col-md-3">
+    <div class="col-md-3 ">
       <div class="input-group">
-        <i class="bi bi-arrow-left-right text-primary fs-4" (click)="changeLayout()"></i>
+        <i class="bi bi-arrow-left-right text-primary fs-4 hover-hand" (click)="changeLayout()"></i>
       </div>
     </div>
     <div class="col-md-3">

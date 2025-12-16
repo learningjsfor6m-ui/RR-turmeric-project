@@ -14,12 +14,12 @@
 
 
   <filter-header [compName]="headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"
-    (changeLayoutFlag)="getLayoutFlag($event)"></filter-header>
+    (changeLayoutFlag)="getLayoutFlag($event)" (sortChange)="onSort($event)" [sortOpt]="sortOptions" [addNewGodown]="addNewGodown"></filter-header>
 
-    <div class="container">
+  <div class="container">
 
 
-    </div>
+  </div>
   <!-- isLoading spinner -->
   <div *ngIf="isLoading" class="text-center my-5">
     <div class="spinner-border text-primary" role="status">
@@ -34,6 +34,9 @@
       @if(isLayout == 'card'){
       <div class="col" *ngFor="let godown of godownDetails | filter:searchText :selectedItem">
         <div class="card h-100 shadow-sm small-card">
+          <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2" (click)="editGodown(godown)">
+            <i class="bi bi-pencil-fill"></i> <!-- Bootstrap Icons -->
+          </button>
           <div class="card-body">
             <h5 class="card-title">{{ godown.name }}</h5>
             <div class="d-flex flex-wrap">
@@ -71,97 +74,97 @@
         </div>
       </div>
       }@else {
-        <table class="table table-bordered table-hover align-middle">
+      <table class="table table-bordered table-hover align-middle">
 
-          <thead class="table-dark">
-            <tr>
-              <th>#</th>
-              <th>Godown Name</th>
-              <th>Location</th>
-              <th>Capacity (KG)</th>
-              <th>Current Stock (KG)</th>
-              <th>Inward (KG)</th>
-              <th>Outward (KG)</th>
-              <th>Status</th>
-              <th>Contact Person</th>
-              <th>Phone</th>
-              <th>Last Updated</th>
-              <th>Action</th>
-            </tr>
-          </thead>
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Godown Name</th>
+            <th>Location</th>
+            <th>Capacity (KG)</th>
+            <th>Current Stock (KG)</th>
+            <th>Inward (KG)</th>
+            <th>Outward (KG)</th>
+            <th>Status</th>
+            <th>Contact Person</th>
+            <th>Phone</th>
+            <th>Last Updated</th>
+            <th>Action</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            <tr *ngFor="let godown of godownDetails | filter:searchText:selectedItem; let i = index">
+        <tbody>
+          <tr *ngFor="let godown of godownDetails | filter:searchText:selectedItem; let i = index">
 
-              <td>{{ i + 1 }}</td>
+            <td>{{ i + 1 }}</td>
 
-              <td class="fw-semibold">
-                {{ godown.name }}
-              </td>
+            <td class="fw-semibold">
+              {{ godown.name }}
+            </td>
 
-              <td>
-                <span class="badge bg-primary">
-                  {{ godown.location }}
-                </span>
-              </td>
+            <td>
+              <span class="badge bg-primary">
+                {{ godown.location }}
+              </span>
+            </td>
 
-              <td>
-                {{ godown.capacity | number }}
-              </td>
+            <td>
+              {{ godown.capacity | number }}
+            </td>
 
-              <td>
-                <span class="badge bg-success">
-                  {{ godown.currentStock | number }}
-                </span>
-              </td>
+            <td>
+              <span class="badge bg-success">
+                {{ godown.currentStock | number }}
+              </span>
+            </td>
 
-              <td>
-                <span class="badge bg-info text-dark">
-                  {{ godown.inwardStock | number }}
-                </span>
-              </td>
+            <td>
+              <span class="badge bg-info text-dark">
+                {{ godown.inwardStock | number }}
+              </span>
+            </td>
 
-              <td>
-                <span class="badge bg-warning text-dark">
-                  {{ godown.outwardStock | number }}
-                </span>
-              </td>
+            <td>
+              <span class="badge bg-warning text-dark">
+                {{ godown.outwardStock | number }}
+              </span>
+            </td>
 
-              <td>
-                <span class="badge" [ngClass]="godown.status === 'active' ? 'bg-success' : 'bg-secondary'">
-                  {{ godown.status | titlecase }}
-                </span>
-              </td>
+            <td>
+              <span class="badge" [ngClass]="godown.status === 'active' ? 'bg-success' : 'bg-secondary'">
+                {{ godown.status | titlecase }}
+              </span>
+            </td>
 
-              <td>
-                {{ godown.contactPerson || 'NA' }}
-              </td>
+            <td>
+              {{ godown.contactPerson || 'NA' }}
+            </td>
 
-              <td>
-                {{ godown.contactNumber || 'NA' }}
-              </td>
+            <td>
+              {{ godown.contactNumber || 'NA' }}
+            </td>
 
-              <td>
-                {{ godown.lastUpdated | date:'short' }}
-              </td>
+            <td>
+              {{ godown.lastUpdated | date:'short' }}
+            </td>
 
-              <td>
-                <button class="btn btn-sm btn-outline-primary"  (click)="gotoGodownPage(godown)">
-                  View
-                </button>
-              </td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary" (click)="gotoGodownPage(godown)">
+                View
+              </button>
+            </td>
 
-            </tr>
+          </tr>
 
-            <!-- No data -->
-            <tr *ngIf="!godownDetails.length">
-              <td colspan="12" class="text-center text-muted">
-                No godown records found
-              </td>
-            </tr>
+          <!-- No data -->
+          <tr *ngIf="!godownDetails.length">
+            <td colspan="12" class="text-center text-muted">
+              No godown records found
+            </td>
+          </tr>
 
-          </tbody>
-        </table>
+        </tbody>
+      </table>
       }
 
     </div>

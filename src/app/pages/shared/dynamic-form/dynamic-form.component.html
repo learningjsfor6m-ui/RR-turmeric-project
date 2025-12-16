@@ -6,11 +6,12 @@
   <ng-container *ngFor="let control of form.formControls">
     <div *ngIf="['text','email','number','date','password'].includes(control.type)" [class]="control.class">
       <label class="form-label" for="">{{control.label}}</label>
-      <input formControlName="{{control.name}}" class="form-control" [type]="control.type">
+      <input formControlName="{{control.name}}" class="form-control" [type]="control.type" placeholder="{{control.palceholder}}">
       <small class="text-danger"
         *ngIf="dynamicForGrp.get(control.name)?.invalid && (dynamicForGrp.get(control.name)?.touched || isSubmitted)">{{getValidationErrors(control)}}</small>
     </div>
     <div *ngIf="control.type == 'select'">
+      <label class="form-label" for="">{{control.label}}</label>
       <select formControlName="{{control.name}}" class="form-select" aria-label="Default select example">
         <option value="" selected>select</option>
         <ng-container *ngFor="let opt of control.options">
