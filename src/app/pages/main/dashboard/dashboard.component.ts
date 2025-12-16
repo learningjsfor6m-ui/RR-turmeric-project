@@ -33,6 +33,7 @@ export class DashboardComponent {
   @ViewChild('username') inputRef!: ElementRef<HTMLInputElement>;
   sortOptions: any;
   addNewGodown = formConfig as IForm;
+  editGodownData!:GodownDetails
 
   constructor(
     private godownService: GodownServiceService,
@@ -113,5 +114,7 @@ export class DashboardComponent {
     });
   }
 
-  editGodown(godown: GodownDetails) {}
+  editGodown(godown: GodownDetails) {
+    this.editGodownData = godown
+  }
 }

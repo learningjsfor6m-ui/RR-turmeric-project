@@ -1,4 +1,12 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChange,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -10,22 +18,28 @@ import {
   IFormControl,
   IValidator,
 } from '../../../shared/interfaces/dynamic-form/form.interface';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { GodownServiceService } from '../../../core/godown-service.service';
+import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
 declare var bootstrap: any;
 @Component({
   selector: 'dynamic-form',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,],
   templateUrl: './dynamic-form.component.html',
   styleUrl: './dynamic-form.component.scss',
+  providers: [DatePipe]
 })
-export class DynamicFormComponent implements OnInit {
+export class DynamicFormComponent implements OnInit, OnChanges {
   @Input() form!: IForm;
   fb = inject(FormBuilder);
   dynamicForGrp: FormGroup = this.fb.group({});
   isSubmitted: boolean = false;
 
-  constructor(private service: GodownServiceService) {}
+  // edit godown
+  @Input() godown!: GodownDetails;
+  // edit godown end
+
+  constructor(private service: GodownServiceService,private datePipe: DatePipe) {}
 
   ngOnInit(): void {
     if (this.form.formControls) {
@@ -55,8 +69,29 @@ export class DynamicFormComponent implements OnInit {
 
       this.dynamicForGrp = this.fb.group(formGroup);
     }
+    console.log(this.godown);
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    //const dateObject = new Date('Mon Dec 01 2025 10:00:00 GMT+0530 (India Standard Time)');
+
+    if (changes['godown']) {
+      this.dynamicForGrp.patchValue(this.godown);
+      if (this.godown.lastUpdated) {
+        const startDateObject = new Date(this.godown.lastUpdated);
+        const formattedDate = this.datePipe.transform(startDateObject, 'yyyy-MM-dd');
+        this.dynamicForGrp.patchValue({ lastUpdated: formattedDate });
+      }
+     this.openModal()
+    }
+  }
+
+  openModal(){
+    const modalEl = document.getElementById('dynamicModal');
+      const modalInstance =
+        bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+        modalInstance.show();
+  }
   onSubmit() {
     this.isSubmitted = true;
 

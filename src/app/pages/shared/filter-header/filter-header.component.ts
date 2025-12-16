@@ -3,8 +3,10 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonService } from '../../../services/common.service';
@@ -12,6 +14,7 @@ import { DynamicFormComponent } from '../dynamic-form/dynamic-form.component';
 import { formConfig } from '../config';
 import { IForm } from '../../../shared/interfaces/dynamic-form/form.interface';
 import { JsonPipe } from '@angular/common';
+import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
 
 @Component({
   selector: 'filter-header',
@@ -20,7 +23,7 @@ import { JsonPipe } from '@angular/common';
   styleUrl: './filter-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FilterHeaderComponent implements OnInit {
+export class FilterHeaderComponent implements OnInit,OnChanges {
   @Input() compName: string = '';
   @Input() filterName: string = '';
   value = '';
@@ -30,6 +33,12 @@ export class FilterHeaderComponent implements OnInit {
   @Input() formData = [];
   @Input() addNewGodown!:IForm;
 
+// edit godown
+  @Input() godown?: GodownDetails;
+  @Output() save = new EventEmitter<GodownDetails>();
+  @Output() close = new EventEmitter<void>();
+  editableGodown!: GodownDetails
+// edit godewn end
   // Sorting vars
   @Output() sortChange = new EventEmitter<{
     key: string;
@@ -52,7 +61,26 @@ export class FilterHeaderComponent implements OnInit {
       this.isFlag = flag;
     });
   }
+ngOnChanges(changes: SimpleChanges) {
+  if (changes['godown']) {
+    this.editableGodown = this.godown ? {...this.godown} : this.getEmptyGodown();
+  }
+  console.log(changes)
+}
 
+ getEmptyGodown(): GodownDetails {
+    return {
+      id: 0,
+      name: '',
+      description: '',
+      capacity: 0,
+      storage: 0,
+      currentStock: 0,
+      inwardStock: 0,
+      outwardStock: 0,
+      status: 'active'
+    };
+  }
   sendMessage(name: string, type: string) {
     this.setMessage = type;
     this.changeEvent.emit(name);

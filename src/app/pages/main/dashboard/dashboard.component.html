@@ -13,7 +13,7 @@
 
 
 
-  <filter-header [compName]="headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)"
+  <filter-header [compName]="headingOfPage" (changeEvent)="selectedItem" (changeInput)="getText($event)" [godown]="editGodownData"
     (changeLayoutFlag)="getLayoutFlag($event)" (sortChange)="onSort($event)" [sortOpt]="sortOptions" [addNewGodown]="addNewGodown"></filter-header>
 
   <div class="container">
@@ -35,7 +35,7 @@
       <div class="col" *ngFor="let godown of godownDetails | filter:searchText :selectedItem">
         <div class="card h-100 shadow-sm small-card">
           <button class="btn btn-sm btn-light position-absolute top-0 end-0 m-2" (click)="editGodown(godown)">
-            <i class="bi bi-pencil-fill"></i> <!-- Bootstrap Icons -->
+            <i class="bi bi-pencil-fill"></i>
           </button>
           <div class="card-body">
             <h5 class="card-title">{{ godown.name }}</h5>
