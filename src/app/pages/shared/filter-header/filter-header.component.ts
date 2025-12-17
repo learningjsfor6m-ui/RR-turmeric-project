@@ -15,6 +15,7 @@ import { formConfig } from '../config';
 import { IForm } from '../../../shared/interfaces/dynamic-form/form.interface';
 import { JsonPipe } from '@angular/common';
 import { GodownDetails } from '../../../shared/interfaces/godown-details/godown.interface';
+declare var bootstrap: any;
 
 @Component({
   selector: 'filter-header',
@@ -62,23 +63,34 @@ export class FilterHeaderComponent implements OnInit,OnChanges {
     });
   }
 ngOnChanges(changes: SimpleChanges) {
-  if (changes['godown']) {
+  if (changes['godown'] && changes['godown']?.currentValue) {
     this.editableGodown = this.godown ? {...this.godown} : this.getEmptyGodown();
   }
   console.log(changes)
 }
-
+addnewGodownPopup(){
+  this.editableGodown = this.getEmptyGodown()
+  const modalEl = document.getElementById('dynamicModal');
+      const modalInstance =
+        bootstrap.Modal.getInstance(modalEl) || new bootstrap.Modal(modalEl);
+        modalInstance.show();
+}
  getEmptyGodown(): GodownDetails {
     return {
-      id: 0,
-      name: '',
-      description: '',
-      capacity: 0,
-      storage: 0,
-      currentStock: 0,
-      inwardStock: 0,
-      outwardStock: 0,
-      status: 'active'
+  id: null as any,
+  name: '',
+  description: '',
+  capacity: null as any,
+  storage: null as any,
+  currentStock: null as any,
+  inwardStock: null as any,
+  outwardStock: null as any,
+  lastUpdated: undefined,
+  status: 'inactive',
+  location: '',
+  contactPerson: '',
+  contactNumber: ''
+
     };
   }
   sendMessage(name: string, type: string) {
